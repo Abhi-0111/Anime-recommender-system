@@ -55,7 +55,7 @@ Git for cloning the repository.
 
 Open your terminal or command prompt and clone this repository:
 
-git clone [https://github.com/your-username/anime-recommender-system.git](https://github.com/Abhi-0111/anime-recommender-system.git)
+git clone [https://github.com/Abhi-0111/anime-recommender-system.git](https://github.com/Abhi-0111/anime-recommender-system.git)
 cd anime-recommender-system
 
 

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Recommender System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-white">
+
+    <div class="container mx-auto max-w-6xl text-center p-4">
+        <!-- Header, Controls, and Main Content -->
+        <header class="my-8">
+            <h1 class="text-4xl md:text-5xl font-bold mb-2">Anime Recommender</h1>
+            <p class="text-lg text-gray-300">Search, filter, or ask the chatbot for suggestions!</p>
+        </header>
+        <div class="flex flex-col md:flex-row flex-wrap justify-center items-center gap-4 mb-10 p-4 bg-gray-900/30 rounded-lg">
+            <div class="flex items-center gap-2">
+                 <input type="text" id="search-input" placeholder="Search for an anime..." class="bg-gray-800/50 border border-gray-700 text-white text-sm rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-full p-2.5">
+                 <button id="search-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Search</button>
+            </div>
+            <div class="flex items-center gap-4">
+                <select id="genre-filter" class="bg-gray-800/50 border border-gray-700 text-white text-sm rounded-lg focus:ring-pink-500 focus:border-pink-500 block w-48 p-2.5 appearance-none">
+                    <option selected value="">Filter by Genre...</option>
+                </select>
+                <button id="random-btn" class="bg-pink-600 hover:bg-pink-700 text-white font-bold py-2 px-4 rounded-lg">Random</button>
+                <button id="reset-btn" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg">Reset</button>
+            </div>
+        </div>
+        <main id="recommendations" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8"></main>
+        <div id="loading" class="flex justify-center items-center mt-8"><div class="loader"></div></div>
+        <div id="error-message" class="hidden mt-8 text-xl text-red-400"></div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="hidden fade-in">
+        <div id="modal-overlay" class="modal-overlay"></div>
+        <div class="modal-content card w-11/12 md:max-w-3xl p-6 md:p-8 rounded-lg">
+            <button id="modal-close-btn" class="absolute top-4 right-4 text-gray-400 hover:text-white text-3xl font-bold">&times;</button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Chatbot UI -->
+    <div id="chatbot-toggle" class="fixed bottom-5 right-5 w-16 h-16 bg-pink-600 rounded-full flex items-center justify-center cursor-pointer shadow-lg hover:bg-pink-700 transition-transform hover:scale-110">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V5zm1.5 0a.5.5 0 00-.5.5v6a.5.5 0 00.5.5h11a.5.5 0 00.5-.5V5.5a.5.5 0 00-.5-.5h-11z" />
+            <path d="M3 3.5a.5.5 0 01.5-.5h9a.5.5 0 010 1h-9a.5.5 0 01-.5-.5z" />
+        </svg>
+    </div>
+    <div id="chat-window" class="hidden fade-in fixed bottom-24 right-5 w-[90vw] max-w-sm h-[60vh] max-h-96 flex flex-col card rounded-lg shadow-2xl">
+        <div class="p-4 border-b border-gray-700 text-center font-bold">Anime Chatbot</div>
+        <div id="chat-messages" class="flex-1 p-4 space-y-4 overflow-y-auto"></div>
+        <div class="p-2 border-t border-gray-700 flex items-center gap-2">
+            <input type="text" id="chat-input" placeholder="Ask me something..." class="flex-1 bg-gray-800/50 border border-gray-700 rounded-lg p-2 focus:ring-pink-500 focus:border-pink-500">
+            <button id="chat-send-btn" class="bg-blue-600 hover:bg-blue-700 rounded-full p-3">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" /></svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

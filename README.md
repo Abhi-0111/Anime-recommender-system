@@ -17,7 +17,10 @@ Random Suggestions: Discover a new anime with the click of a button.
 
 Live Cover Art: Fetches and displays up-to-date anime posters from the Jikan API.
 
-Interactive UI: A sleek, modern, and responsive user interface built for a great user experience.
+Interactive UI: A sleek, modern, and responsive user interface built for a great user experienc.
+
+Chatbot: Anime chatbot that can suggest more anime according to similarities and genres
+
 
 🛠️ Tech Stack
 
